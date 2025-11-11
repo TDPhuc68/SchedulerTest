@@ -35,7 +35,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/schedulertest?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
     username: root
-    password:
+    password: sa123
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -49,11 +49,11 @@ spring:
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
-  mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+  #  mail:
+  #    host: localhost
+  #    port: 25
+  #    username: dinhphuc0608@gmail.com
+  #    password: codxhsntscvcjjz
   thymeleaf:
     cache: true
 

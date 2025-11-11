@@ -32,14 +32,17 @@ spring:
       additional-exclude: static/**
     livereload:
       enabled: false # we use Webpack dev server + BrowserSync for livereload
+
   jackson:
     serialization:
       indent-output: true
+
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/schedulertest?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
     username: root
-    password:
+    password: sa123
+    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -48,18 +51,28 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update # tạo bảng tự động nếu chưa có
+    show-sql: true
+
   elasticsearch:
     uris: http://localhost:9200
+
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
-  mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+
+  #  mail:
+  #    host: localhost
+  #    port: 25
+  #    username: dinhphuc0608@gmail.com
+  #    password: codxhsntscvcjjz
+
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
+
   thymeleaf:
     cache: false
 
@@ -67,6 +80,56 @@ server:
   port: 8080
   # make sure requests the proxy uri instead of the server one
   forward-headers-strategy: native
+
+#spring:
+#  devtools:
+#    restart:
+#      enabled: true
+#      additional-exclude: static/**
+#    livereload:
+#      enabled: false # we use Webpack dev server + BrowserSync for livereload
+#  jackson:
+#    serialization:
+#      indent-output: true
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://localhost:3306/schedulertest?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
+#    username: root
+#    password: sa123
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update   # tạo bảng tự động nếu chưa có
+#    show-sql: true
+#
+#    hikari:
+#      poolName: Hikari
+#      auto-commit: false
+#      data-source-properties:
+#        cachePrepStmts: true
+#        prepStmtCacheSize: 250
+#        prepStmtCacheSqlLimit: 2048
+#        useServerPrepStmts: true
+#  elasticsearch:
+#    uris: http://localhost:9200
+#  liquibase:
+#    # Remove 'faker' if you do not want the sample data to be loaded automatically
+#    contexts: dev, faker
+#  mail:
+#    host: localhost
+#    port: 25
+#    username:
+#    password:
+#  messages:
+#    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+#  thymeleaf:
+#    cache: false
+#
+#server:
+#  port: 8080
+#  # make sure requests the proxy uri instead of the server one
+#  forward-headers-strategy: native
 
 # ===================================================================
 # JHipster specific properties

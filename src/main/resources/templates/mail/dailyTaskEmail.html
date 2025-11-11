@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Danh sách công việc hôm nay</title>
+</head>
+<body>
+<h2>Danh sách công việc ngày <span th:text="${date}"></span></h2>
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+  <tr>
+    <th>Tên công việc</th>
+    <th>Mức độ ưu tiên</th>
+    <th>Thời gian bắt đầu</th>
+    <th>Thời gian kết thúc</th>
+    <th>Trạng thái</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="task : ${tasks}">
+    <td th:text="${task.title}"></td>
+    <td th:text="${task.priority}"></td>
+    <td th:text="${task.startTime}"></td>
+    <td th:text="${task.endTime}"></td>
+    <td th:text="${task.status}"></td>
+  </tr>
+  </tbody>
+</table>
+<p>Chúc bạn một ngày làm việc hiệu quả!</p>
+</body>
+</html>
