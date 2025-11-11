@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Nhắc nhở công việc</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+        color: #333;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+    h2 {
+        color: #007bff;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    .footer {
+        margin-top: 20px;
+        font-size: 13px;
+        color: #666;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>🔔 Nhắc nhở công việc</h2>
+
+  <p>Xin chào,</p>
+  <p>Bạn có một công việc cần chú ý:</p>
+
+  <table>
+    <tr>
+      <th>Tên công việc:</th>
+      <td th:text="${task.title}">Tên công việc</td>
+    </tr>
+    <tr>
+      <th>Thời gian bắt đầu:</th>
+      <td th:text="${task.startTime}">2025-11-10T09:00</td>
+    </tr>
+    <tr>
+      <th>Thời gian kết thúc:</th>
+      <td th:text="${task.endTime}">2025-11-10T12:00</td>
+    </tr>
+    <tr>
+      <th>Mức độ ưu tiên:</th>
+      <td th:text="${task.priority}">HIGH</td>
+    </tr>
+    <tr>
+      <th>Trạng thái:</th>
+      <td th:text="${task.status}">IN_PROGRESS</td>
+    </tr>
+  </table>
+
+  <p>Vui lòng kiểm tra ứng dụng để xem chi tiết.</p>
+
+  <div class="footer">
+    <p>Trân trọng,<br/>Hệ thống Quản lý Công việc EMS</p>
+  </div>
+</div>
+</body>
+</html>

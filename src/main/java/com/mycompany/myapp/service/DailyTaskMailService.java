@@ -37,7 +37,7 @@ public class DailyTaskMailService {
     }
 
     // Lên lịch chạy 8h sáng mỗi ngày
-    @Scheduled(cron = "0 * * * * *", zone = "Asia/Ho_Chi_Minh")
+    @Scheduled(cron = "0 0 8 * * *", zone = "Asia/Ho_Chi_Minh")
     public void sendDailyTaskSummary() {
         log.info("📧 Starting daily task email job...");
 
